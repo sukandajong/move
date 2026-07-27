@@ -43,7 +43,7 @@ radio.onReceivedString(function (receivedString) {
             `)
         iBIT.setMotor(ibitMotorCH.M1, ibitMotor.Forward, 50)
         iBIT.setMotor(ibitMotorCH.M2, ibitMotor.Backward, 50)
-    } else if (receivedString == "S") {
+    } else if (receivedString == "Stop") {
         basic.showIcon(IconNames.No)
         iBIT.setMotor(ibitMotorCH.M1, ibitMotor.Forward, 0)
         iBIT.setMotor(ibitMotorCH.M2, ibitMotor.Forward, 0)
@@ -52,7 +52,7 @@ radio.onReceivedString(function (receivedString) {
 input.onButtonPressed(Button.B, function () {
     isactive = false
     basic.showIcon(IconNames.No)
-    radio.sendString("S")
+    radio.sendString("Stop")
 })
 let joyx = 0
 let joyy = 0
@@ -99,7 +99,7 @@ basic.forever(function () {
                 `)
             radio.sendString("L")
         } else {
-            radio.sendString("S")
+            radio.sendString("Stop")
         }
     }
 })
